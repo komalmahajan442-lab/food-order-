@@ -1,7 +1,7 @@
 
 import React, { useContext } from 'react';
 import { StoreContext } from '../../context/storeContext';
-import './cart.css';
+import './Cart.css';
 import { useNavigate } from 'react-router-dom';
 const Cart = () => {
   const {cartItems,food_list,removeFromCart,getTotalCartAmount,url}=useContext(StoreContext);
