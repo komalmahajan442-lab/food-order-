@@ -51,8 +51,8 @@ console.log("placeorder function called");
 
     try {
 
-      console.log(`starting api call ${API_URL}/api/order/place`);
-      const response = await axios.post(`${API_URL}/api/order/place`, orderData, {
+      console.log(`starting api call ${url}/api/order/place`);
+      const response = await axios.post(`${url}/api/order/place`, orderData, {
         headers: { token },
        
       });
