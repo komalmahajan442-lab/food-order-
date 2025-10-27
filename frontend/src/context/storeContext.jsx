@@ -1,12 +1,12 @@
 import axios from "axios";
 import { createContext, useEffect, useState } from "react"
-const API_URL = import.meta.env.BACKEND_URL;
+
 
 export const StoreContext=createContext(null);
 
 const StoreContextProvider=(props)=>{
 const [cartItems,setCartItems]=useState({})
-const url=API_URL;
+const url="https://food-order-qgqn.onrender.com";
 const [token,setToken]=useState("")
 const [food_list,setFoodList]=useState([])
 const addToCart=async(itemId)=>{
