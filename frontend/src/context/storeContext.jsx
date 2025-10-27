@@ -1,12 +1,12 @@
 import axios from "axios";
 import { createContext, useEffect, useState } from "react"
-
+const API_URL = import.meta.env.BACKEND_URL;
 
 export const StoreContext=createContext(null);
 
 const StoreContextProvider=(props)=>{
 const [cartItems,setCartItems]=useState({})
-const url="http://localhost:4000";
+const url=API_URL;
 const [token,setToken]=useState("")
 const [food_list,setFoodList]=useState([])
 const addToCart=async(itemId)=>{
@@ -16,7 +16,7 @@ setCartItems((prev)=>({...prev,[itemId]:1}))
         setCartItems((prev)=>({...prev,[itemId]:prev[itemId]+1}))
     }
     if(token){
-      await  axios.post(url+"/api/cart/add",{itemId},{headers:{token}});
+      await  axios.post(API_URL+"/api/cart/add",{itemId},{headers:{token}});
     }
 }
 
@@ -38,12 +38,12 @@ totalAmount+=itemInfo.price*cartItems[item];
 }
 
 const fetchFoodList=async()=>{
-    const response=await axios.get(url+"/api/food/list")
+    const response=await axios.get(API_URL+"/api/food/list")
     setFoodList(response.data.data)
 }
 
 const loadCartData=async(token)=>{
-const response=await axios.post(url+"/api/cart/get",{},{headers:{token}})
+const response=await axios.post(API_URL+"/api/cart/get",{},{headers:{token}})
 setCartItems(response.data.cartData)
 }
 

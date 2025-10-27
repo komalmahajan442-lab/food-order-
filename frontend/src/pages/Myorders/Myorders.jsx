@@ -5,11 +5,11 @@ import axios from "axios";
 
 import { assets } from "../../assets/assets";
 export const Myorders=()=>{
-    const {url,token}=useContext(StoreContext);
+    const {API_URL,token}=useContext(StoreContext);
     const [data,setData]=useState([]);
     const fetchOrders=async ()=>{
         try{
-        const response=await axios.post(`${url}/api/order/userorders`,{},{headers:{token}});
+        const response=await axios.post(`${API_URL}/api/order/userorders`,{},{headers:{token}});
         setData(response.data.data);
         console.log(response.data.data);
     }catch(error){

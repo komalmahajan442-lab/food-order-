@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 
 const Placeorder = () => {
   
-  const { getTotalCartAmount, token, food_list, cartItems, url } = useContext(StoreContext);
+  const { getTotalCartAmount, token, food_list, cartItems, API_URL } = useContext(StoreContext);
 
   const [data, setdata] = useState({
     firstName: '',
@@ -51,8 +51,8 @@ console.log("placeorder function called");
 
     try {
 
-      console.log(`starting api call ${url}/api/order/place`);
-      const response = await axios.post(`${url}/api/order/place`, orderData, {
+      console.log(`starting api call ${API_URL}/api/order/place`);
+      const response = await axios.post(`${API_URL}/api/order/place`, orderData, {
         headers: { token },
        
       });
